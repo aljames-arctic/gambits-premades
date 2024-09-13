@@ -22,6 +22,7 @@ import { rainOfCinders } from './macros/rainOfCinders.js';
 import { biohazard } from './macros/biohazard.js';
 import { enableOpportunityAttack, disableOpportunityAttack, opportunityAttackScenarios } from './macros/opportunityAttack.js';
 import { deleteChatMessage, gmIdentifyItem, closeDialogById, handleDialogPromises, rollAsUser, convertFromFeet, gmUpdateTemplateSize, findValidTokens, pauseDialogById, freeSpellUse, process3rdPartyReactionDialog, moveTokenByCardinal, moveTokenByOriginPoint, addReaction, gmUpdateDisposition, gmToggleStatus, replaceChatCard } from './helpers.js';
+import { setupMacroUtil } from './macroUtil/install.js'
 export let socket;
 
 Hooks.once('init', async function() {
@@ -147,6 +148,7 @@ Hooks.once('socketlib.ready', async function() {
     socket.register("rainOfCinders", rainOfCinders);
     socket.register("biohazard", biohazard);
     socket.register("replaceChatCard", replaceChatCard);
+    setupMacroUtil();
 })
 
 Hooks.once('ready', async function() {
